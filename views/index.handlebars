@@ -1,54 +1,90 @@
-<div class="container" style="padding: 100px">
 
 
-<nav class="navbar navbar-dark bg-dark justify-content-center">
-  <span class="navbar-brand mb-0 h1" style="font-family: 'Satisfy', cursive; font-size:90px"> Let's Eat Burgers!</span>
-</nav>
+
+<div class="container">
+	<div class="row">
+		<div class="col-sm-12 center" id="top-bar">
+			<div class="background">
+  <div class="burger">
+     <div class="topBurger">
+       <div class="spots spot1"></div>
+       <div class="spots spot2"></div>
+       <div class="spots spot3"></div>
+       
+       <svg xmlns="http://www.w3.org/2000/svg" class="topBun ingredient" width="80.03mm" height="51.9mm" viewBox="0 0 226.86 147.13">
+  <path d="M226.86 131.91v-18.48C226.86 51 175.81 0 113.43 0 51 0 0 51 0 113.43v18.48a15.22 15.22 0 0 0 15.22 15.22h196.42a15.22 15.22 0 0 0 15.22-15.22z" fill="#F2BE65" data-name="Layer 2"/>
+</svg>
+     
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" class="lettuce ingredient" width="91.68mm" height="71.735" viewBox="0 0 259.88 53.82">
+  <path d="M259.63 32.64C257.08 21.9 249.61 4.86 227.79 0c0 .6-195.69.6-195.69 0C10.27 4.86 2.81 21.9.26 32.64a8.75 8.75 0 0 0 4.84 10.2c7.39 3 9.39 11 20 11 13.1 0 13.1-12.09 26.2-12.09s13.1 12.09 26.2 12.09 13.1-12.09 26.2-12.09 13.1 12.09 26.2 12.09 13.1-12.09 26.2-12.09 13.1 12.09 26.2 12.09 13.1-12.09 26.2-12.09 13.1 12.09 26.2 12.09c10.64 0 12.64-8 20-11a8.75 8.75 0 0 0 4.93-10.2z" fill="#57e857" data-name="Layer 2"/>
+</svg> 
+     
+     <svg xmlns="http://www.w3.org/2000/svg" class="tomato1 ingredient" width="37.64mm" height="9.5mm" viewBox="0 0 106.71 26.92">
+  <path d="M90.9 0H15.81C7.11 0 0 4.56 0 10.13v6.65c0 5.57 7.11 10.13 15.81 10.13H90.9c8.69 0 15.81-4.56 15.81-10.13v-6.65C106.71 4.56 99.6 0 90.9 0z" fill="#fc2224" data-name="Layer 2"/>
+</svg>
+       <svg xmlns="http://www.w3.org/2000/svg" class="tomato2 ingredient" width="37.64mm" height="9.5mm" viewBox="0 0 106.71 26.92">
+  <path d="M90.9 0H15.81C7.11 0 0 4.56 0 10.13v6.65c0 5.57 7.11 10.13 15.81 10.13H90.9c8.69 0 15.81-4.56 15.81-10.13v-6.65C106.71 4.56 99.6 0 90.9 0z" fill="#fc2224" data-name="Layer 2"/>
+</svg>
+
+<svg xmlns="http://www.w3.org/2000/svg" class="cheese ingredient" width="275.83" height="44.258" viewBox="0 0 206.87 33.21">
+  <path d="M176.23 0H30.65C13.79 0 0 2.31 0 5.13v3.36c0 2.82 13.79 5.13 30.65 5.13h97.12L160.36 31a18.48 18.48 0 0 0 19.48-1.29l26.26-18.85s-.46-.21-1.32-.56c1.34-.57 2.08-1.2 2.08-1.85V5.13C206.87 2.31 193.08 0 176.23 0z" fill="#e9f169" data-name="Layer 2"/>
+</svg> 
+     </div>
+     <div class="middleBurger"></div>
+     <div class="bottomBurger ">
+           <svg xmlns="http://www.w3.org/2000/svg" class="bottomBun ingredient" width="80.03mm" height="14mm" viewBox="0 0 226.86 39.68">
+  <path d="M6.19 0h214.48a6.19 6.19 0 0 1 6.19 6.19v17.24a16.25 16.25 0 0 1-16.26 16.25H16.25A16.25 16.25 0 0 1 0 23.43V6.19A6.19 6.19 0 0 1 6.19 0z" fill="#F2BE65" data-name="Layer 2"/>
+</svg>  
+     </div>
+  </div>
 
 
-<div class="jumbotron" style="display: flex;justify-content: center">
-
-
-    <div id='avail' class="container center">
-        <h2>Burgers Available to Eat:</h2>
-        <ul>
-            {{#each burgers}} {{#unless this.devoured}}
-            <li>
-                {{this.id}}. {{this.burger_name}}
-
-                <form action="/{{this.id}}?_method=PUT" method="POST">
-                    <input type="hidden" name="devoured" value="false">
-                    <button class="btn btn-warning" type="submit">Eat Me!</button>
-                </form>
-
-            </li>
-            {{/unless}} {{/each}}
-        </ul>
-    </div>
-    <div id='devoured' class="container">
-        <h2>Burgers Devoured: </h2>
-
-        <ul>
-            {{#each burgers}} {{#if this.devoured}}
-            <li>
-                {{this.id}}. {{this.burger_name}}
-            </li>
-            {{/if}} {{/each}}
-        </ul>
-    </div>
-
-    <div id='add' class="container" >
-        <h2>Add a Burger: </h2>
-
-        <form class="create-update-form" action="/" method="POST">
-            <div class="form-group">
-                <label for="dab">Burger Name:</label>
-                <input type="text" id="dab" name="burger_name">
-            </div>
-            <button class="btn btn-success" type="submit">Add Burger</button>
-        </form>
-    </div>
-
+  
+<div class="order">
+<p>Let's Eat Burgers<p>  
+</div>
 </div>
 
+		</div>
+		<div class="col-sm-6 text-center" class="task">
+			<div class="row">
+			  {{#each burger}}
+			  	{{#unless this.devoured}}
+				<div class="col-sm-9 text-center">
+					<pre>{{this.id}}. {{this.burger_name}}
+					</pre>
+				  		<!-- {{this.Date}} -->
+				</div>
+				<div class="col-sm-3 text-center">
+					<form class="button-size devour-form">
+						<input input type="hidden" class="burger_id" type="text" value={{this.id}}><br>
+						<button type="submit" class="btn btn-default">Devour it!</button>
+					</form>
+				</div>
+				{{/unless}}
+			  {{/each}}
+			</div>
+		</div>
+		<div class="col-sm-6 text-center" class="task">
+			  {{#each burger}}
+			  	{{#if this.devoured}}
+			  		<input class="form-control" type="text" placeholder="{{this.id}} . {{this.burger_name}}" readonly>
+				{{/if}}
+			  {{/each}}
+		</div>
+	</div>
+</div>
+
+<div class="container">
+	<div class="row">
+		<div class="col-sm-12 text-center enter_section">
+			<form action="/burgers/create" method="POST">
+				<input type="text" class="form-control" name="burger_name" value="" id="enter_text">
+				<button type="submit" class="btn btn-warning" id="text-enter-button">Submit</button>
+			</form>
+			<p>Enter a burger you want to eat Click the "Submit" button.</p>
+		</div>
+	</div>
 </div>
