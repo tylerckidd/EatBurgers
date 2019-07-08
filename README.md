@@ -6,7 +6,7 @@
 # Project
 
 Let's Eat Burgers : Web Application 
-link: https://tylerckidd.github.io/Let-s-Be-Besties/
+
 
 
 
@@ -25,5 +25,8 @@ or don't
 * JSON
 * MYSQL
 * Handlebars
+
+## Screenshots
+
 
 
