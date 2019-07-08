@@ -1,0 +1,54 @@
+<div class="container" style="padding: 100px">
+
+
+<nav class="navbar navbar-dark bg-dark justify-content-center">
+  <span class="navbar-brand mb-0 h1" style="font-family: 'Satisfy', cursive; font-size:90px"> Let's Eat Burgers!</span>
+</nav>
+
+
+<div class="jumbotron" style="display: flex;justify-content: center">
+
+
+    <div id='avail' class="container center">
+        <h2>Burgers Available to Eat:</h2>
+        <ul>
+            {{#each burgers}} {{#unless this.devoured}}
+            <li>
+                {{this.id}}. {{this.burger_name}}
+
+                <form action="/{{this.id}}?_method=PUT" method="POST">
+                    <input type="hidden" name="devoured" value="false">
+                    <button class="btn btn-warning" type="submit">Eat Me!</button>
+                </form>
+
+            </li>
+            {{/unless}} {{/each}}
+        </ul>
+    </div>
+    <div id='devoured' class="container">
+        <h2>Burgers Devoured: </h2>
+
+        <ul>
+            {{#each burgers}} {{#if this.devoured}}
+            <li>
+                {{this.id}}. {{this.burger_name}}
+            </li>
+            {{/if}} {{/each}}
+        </ul>
+    </div>
+
+    <div id='add' class="container" >
+        <h2>Add a Burger: </h2>
+
+        <form class="create-update-form" action="/" method="POST">
+            <div class="form-group">
+                <label for="dab">Burger Name:</label>
+                <input type="text" id="dab" name="burger_name">
+            </div>
+            <button class="btn btn-success" type="submit">Add Burger</button>
+        </form>
+    </div>
+
+</div>
+
+</div>
