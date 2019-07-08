@@ -46,6 +46,6 @@ app.use(routes);
 var PORT = process.env.PORT || 3000;
 db.sequelize.sync().then(function() {
   app.listen(PORT, function() {
-    console.log('Node server is running on port ' + app.get( 'port' ));
+    console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
   });
 });
